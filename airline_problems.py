@@ -28,7 +28,6 @@ def make_graph_from_file(text_file):
             # add edge from 'from' to 'to' with 'distance'
             graph.add_edge(from_v, to_v, distance)
 
-            
         return graph
 
 import argparse
@@ -50,3 +49,15 @@ if __name__ == "__main__":
     for v in g:
         for w in v.get_neighbors():
             print("( %s , %s , %s )" % (v.get_id(), w.get_id(), v.get_edge_weight(w)))
+
+    '''
+    First problem : see if we can travel with each flight once and come back to the original city
+
+    '''
+    problem1 = g.is_eulerian()
+    if problem1 == True:
+        print("This graph has eulerian cycle, meaning there is a way we can take every possible flight route exactly once and end up at the original airport where we started the trip.")
+    else:
+        print("There is no eulerian cycle. There is no way we can take every possible flight route exactly once and end up at the original airport where we started the trip.")
+
+    

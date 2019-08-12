@@ -58,6 +58,18 @@ class Graph:
         """return all the vertices in the graph"""
         return self.vertList.keys()
 
+    def is_eulerian(self):
+        '''
+        returns boolean of whether or not the graph is eulerian
+        A graph has an Eulerian cycle iff every vertex has even degree.
+        '''
+        for vert in self.vertList.values():
+            degree = len(vert.get_neighbors())
+            if degree % 2 != 0:
+                print("this vertex has odd degree which makes impossible for eurelian: ", vert)
+                return False
+        return True
+
     def __iter__(self):
         """
         iterate over the vertex objects in the
