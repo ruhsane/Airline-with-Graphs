@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     '''
     First problem : see if we can travel with each flight once and come back to the original city
-
+    call method is_eulerian()
     '''
     problem1 = g.is_eulerian()
     if problem1 == True:
@@ -60,4 +60,3 @@ if __name__ == "__main__":
     else:
         print("There is no eulerian cycle. There is no way we can take every possible flight route exactly once and end up at the original airport where we started the trip.")
 
-    
