@@ -2,7 +2,7 @@
 
 
 ## Problems:
-1. see if we can travel with each flight once and come back to the original city
+1. see if it is possible to take every possible flight route exactly once and end up at the original airport where we started the trip
 2. find shortest path from city A to city B
 3. find a city that has the most amount of connecting cities
 
