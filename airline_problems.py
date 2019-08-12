@@ -62,9 +62,16 @@ if __name__ == "__main__":
 
 
     '''
-    find shortest path from airport A to airport B
+    2nd problem: find shortest path from airport A to airport B
     '''
     airport_A = "SIN"
     airport_B = "AUH"
     problem2 = g.breadth_first_search(airport_A, airport_B)
     print("The shortest path from %s to %s is: %s" % (airport_A, airport_B, problem2))
+
+
+    '''
+    3rd problem: find a airport that has the most amount of connected flights
+    '''
+    print("The airport that has the most amount of connected flights is: ")
+    print(g.maximum_degree())

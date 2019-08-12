@@ -198,3 +198,29 @@ class GraphTest(unittest.TestCase):
         actual_path = [1, 2, 5]
         actual_edges = 2
         self.assertEqual((test_path, test_edge), (actual_path, actual_edges))
+
+    def test_maximum_degree(self):
+        graph = Graph()
+        vertices = [
+            Vertex(1), 
+            Vertex(2),  
+            Vertex(3)
+        ]
+        edges = [
+            (1,2),
+            (1,4),
+            (2,3),
+            (2,4),
+            (2,5),
+            (3,5)
+        ]
+
+        for vertex in vertices:
+            graph.add_vertex(vertex)
+
+        for edge in edges:
+            from_vert, to_vert = edge
+            graph.add_edge(from_vert, to_vert)
+
+        result = graph.maximum_degree()
+        self.assertEqual(result.id, 2)

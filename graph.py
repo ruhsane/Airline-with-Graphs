@@ -109,6 +109,19 @@ class Graph:
                 curr_vertex = curr_vertex.parent
             return path[::-1] # Reverse the list because we are traversing backwards
 
+    def maximum_degree(self):
+        '''
+        find the vertex with the maximum degree
+        '''
+        degree = 0
+
+        for v in self.vertList.values():
+            if len(v.neighbors) > degree:
+                vert = v
+                degree = len(v.neighbors)
+
+        return vert
+
     def __iter__(self):
         """
         iterate over the vertex objects in the
