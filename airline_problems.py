@@ -60,3 +60,11 @@ if __name__ == "__main__":
     else:
         print("There is no eulerian cycle. There is no way we can take every possible flight route exactly once and end up at the original airport where we started the trip.")
 
+
+    '''
+    find shortest path from airport A to airport B
+    '''
+    airport_A = "SIN"
+    airport_B = "AUH"
+    problem2 = g.breadth_first_search(airport_A, airport_B)
+    print("The shortest path from %s to %s is: %s" % (airport_A, airport_B, problem2))

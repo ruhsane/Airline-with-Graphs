@@ -3,6 +3,7 @@ A class demonstrating the essential
 facts and functionalities of graphs.
 """
 from vertex import Vertex
+from queue import Queue
 
 class Graph:
     def __init__(self):
@@ -69,6 +70,44 @@ class Graph:
                 print("this vertex has odd degree which makes impossible for eurelian: ", vert)
                 return False
         return True
+
+    def breadth_first_search(self, from_vert, to_vert):
+        '''
+        Run breadth_first_search starting from the input from_vertex and go until we found to_vertex 
+        Return all nodes on the path
+        '''
+
+        #initializers
+        path_found = False
+        q = Queue()
+        visited = set()
+
+        # get vertex object for from_vert, set parent to None, put in queue, mark as visited
+        curr_vertex = self.get_vertex(from_vert)
+        curr_vertex.parent = None
+        q.put(curr_vertex)
+        visited.add(curr_vertex.id)
+
+        # while q is not empty
+        while q:
+            curr_vertex = q.get()
+            if curr_vertex.id == to_vert:
+                path_found = True
+                break 
+
+            for neighbor in curr_vertex.neighbors: 
+                if neighbor.id not in visited:
+                    q.put(neighbor)
+                    visited.add(neighbor.id)
+                    neighbor.parent = curr_vertex
+
+        # Once ending vertex is found, traverse from bottom to up according to its parent
+        if path_found:
+            path = []
+            while curr_vertex:
+                path.append(curr_vertex.id)
+                curr_vertex = curr_vertex.parent
+            return path[::-1] # Reverse the list because we are traversing backwards
 
     def __iter__(self):
         """
